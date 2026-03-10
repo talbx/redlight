@@ -11,8 +11,10 @@ pub struct Accessory {
     pub _kind: Option<String>,
     pub _human_type: Option<String>,
     pub _service_name: Option<String>,
+    #[serde(rename = "serviceCharacteristics")]
     pub service_characteristics: Option<Vec<ServiceCharacteristic>>,
     pub _values: Option<HashMap<String, Value>>,
+    #[serde(rename = "uniqueId")]
     pub unique_id: Option<String>,
 }
 
