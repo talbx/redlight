@@ -11,7 +11,7 @@ use coreaudio::InputMonitor;
 fn main() {
     fmt().json().init();
 
-    tracing::info!("staring midi-lights ...");
+    tracing::info!("Starting redlight ...");
     tracing::info!("loading device config ...");
     let load = Config::load("config.yaml");
 

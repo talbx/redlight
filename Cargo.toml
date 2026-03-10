@@ -1,14 +1,9 @@
 [package]
-name = "midi-lights"
+name = "redlight"
 version = "0.1.0"
 edition = "2021"
-description = "Rust translation of the midi-lights Go project — listen to MIDI (IAC Driver Bus 1) and trigger actions."
+description = "Listen to MIDI events and trigger IoT/API actions based on DAW recording state."
 license = "MIT OR Apache-2.0"
-
-# Optional metadata (fill in as desired)
-# authors = ["Your Name <you@example.com>"]
-# repository = "https://your.repo/url"
-
 
 [dependencies]
 midir = "0.9"
@@ -21,5 +16,5 @@ serde = { version = "1.0", features = ["derive"] }
 serde_yaml = "0.9"
 
 [[bin]]
-name = "midi-lights"
+name = "redlight"
 path = "src/main.rs"
