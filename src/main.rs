@@ -5,15 +5,19 @@ use tracing_subscriber::fmt;
 
 mod config;
 mod coreaudio;
+mod iot;
+mod trigger;
 use config::Config;
 use coreaudio::InputMonitor;
 
-fn main() {
+#[tokio::main]
+async fn main() {
     fmt().json().init();
+    dotenvy::dotenv().ok();
 
     tracing::info!("Starting redlight ...");
     tracing::info!("loading device config ...");
-    let load = Config::load("config.yaml");
+    let load = Config::load("config.yml");
 
     let cfg = match load {
         Ok(cfg) => cfg,
@@ -38,6 +42,9 @@ fn main() {
     let is_running = Arc::new(Mutex::new(false));
     let is_running_clone = is_running.clone();
 
+    let rt = tokio::runtime::Handle::current();
+    let rt_midi = rt.clone();
+
     // MIDI monitoring (from before)
     let mut midi_in = MidiInput::new("Studio One Monitor").unwrap();
     midi_in.ignore(Ignore::None);
@@ -57,26 +64,15 @@ fn main() {
                     // started | continue
                     0xFB | 0xFA => {
                         *is_running_clone.lock().unwrap() = true;
-
-                        if input_monitor.has_input() {
-                            tracing::info!(
-                                state = "recording",
-                                "transport started with audio input"
-                            );
-                            // Trigger lights here
-                        } else {
-                            tracing::info!(
-                                state = "playback",
-                                "transport started without audio input"
-                            );
-                            // Don't trigger lights
+                        match input_monitor.has_input() {
+                            true => trigger::record(cfg.clone(), &rt_midi),
+                            false => trigger::playback(cfg.clone()),
                         }
                     }
                     // stopped
                     0xFC => {
                         *is_running_clone.lock().unwrap() = false;
-                        tracing::info!(state = "stopped", "transport stopped");
-                        // Turn off lights
+                        trigger::stop(cfg.clone(), &rt_midi);
                     }
                     _ => {}
                 }

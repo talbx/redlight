@@ -5,11 +5,29 @@ use std::fs;
 pub struct Config {
     pub audio: Option<AudioConfig>,
     pub devices: Option<Vec<String>>,
+    pub iot: Option<IoTConfig>,
 }
 
 #[derive(Debug, Deserialize, Clone)]
 pub struct AudioConfig {
     pub microphone: Option<String>,
+}
+
+#[derive(Debug, Deserialize, Clone)]
+pub struct IoTConfig {
+    pub homebridge: Option<HomebridgeConfig>,
+}
+
+#[derive(Debug, Deserialize, Clone)]
+pub struct HomebridgeConfig {
+    pub api_url: String,
+    pub device: HomebridgeDevice,
+}
+
+#[derive(Debug, Deserialize, Clone)]
+pub struct HomebridgeDevice {
+    pub unique_id: String,
+    pub characteristic_type: String,
 }
 
 impl Config {
@@ -23,5 +41,13 @@ impl Config {
     }
     pub fn devices(&self) -> Vec<String> {
         self.devices.clone().unwrap_or_default()
+    }
+
+    pub fn iot(&self) -> Option<&IoTConfig> {
+        self.iot.as_ref()
+    }
+
+    pub fn homebridge(&self) -> Option<&HomebridgeConfig> {
+        self.iot()?.homebridge.as_ref()
     }
 }

@@ -1,3 +1,5 @@
 fileignoreconfig:
 - filename: 'Cargo.lock'
   ignore_detectors: [filecontent]
+- filename: 'src/iot.rs'
+  allowed_patterns: [password, HOMEBRIDGE_PASS]
