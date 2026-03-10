@@ -1,0 +1,7 @@
+devices:
+  - &mac "MacBook Pro Microphone"
+  - &quantum "Quantum LT2"
+audio:
+  # Name (or partial name) of the input device to monitor.
+  # If omitted, the system default input device is used.
+  microphone: *quantum

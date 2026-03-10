@@ -1,0 +1,8 @@
+[tools]
+rust = "1.94.0"
+prek = "0.3.4"
+
+[tasks]
+run = "RUST_BACKTRACE=1 cargo run -qr"
+build = "cargo b -qr"
+lint = "cargo clippy -qr"
