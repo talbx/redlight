@@ -1,3 +1,5 @@
 target/
 config.yml
 .env
+.DS_Store
+**/.DS_Store

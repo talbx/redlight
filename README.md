@@ -2,6 +2,8 @@
 
 MIDI-driven IoT trigger for musicians with active recording detection, written in Rust.
 
+[See demo](./assets/demo.mov)
+
 ## What is redlight?
 
 Have you ever seen these cool red "On-Air" lights in recording studios, that light up when someone is recording?
