@@ -30,7 +30,7 @@ To use redlight, you need to setup your MIDI environment, configure your DAW to 
 
 Open the MIDI Setup on your Mac and make sure the IAC Driver is enabled and has Bus 1 configured.
 
-![MIDI Setup](./assets/midi_setup.png)
+![MIDI Setup](./assets/midi-setup.png)
 
 ### DAW setup
 
@@ -42,7 +42,7 @@ In Fender Studio Pro, you can enable MIDI clock and transport signals by going t
 - [x] Send MIDI Clock
 - [x] Send MIDI Timecode
 
-![fsp midi setup](./assets/fsp_midi_setup.png)
+![fsp midi setup](./assets/studio-pro-midi.png)
 
 ### redlight setup
 
