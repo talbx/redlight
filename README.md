@@ -2,8 +2,7 @@
 
 MIDI-driven IoT trigger for musicians with active recording detection, written in Rust.
 
-Watch the demo:
-[![Watch the demo](./assets/thumbnail.png)](https://www.youtube.com/shorts/SL_OzyB37BE)
+[Checkout the demo here](https://www.youtube.com/shorts/SL_OzyB37BE)
 
 
 ## What is redlight?
