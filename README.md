@@ -1,4 +1,6 @@
 # redlight
+<img src="./assets/onair.jpg" align="right"
+     alt="Size Limit logo by Anton Lovchikov" width="33%">
 
 MIDI-driven IoT trigger for musicians with active recording detection, written in Rust.
 
@@ -82,3 +84,6 @@ audio:
 - [ ] Cubase
 - [ ] Reaper
 - [ ] FL Studio
+
+
+> On Air Photo by <a href="https://unsplash.com/@alfinimages?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alan Findlay</a> on <a href="https://unsplash.com/photos/a-neon-sign-hanging-from-the-side-of-a-wall-qKEQBAKbXhw?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
