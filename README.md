@@ -21,6 +21,8 @@ Once you hit play or record, your configured triggers will be activated, and whe
 
 > :warning: Currently, redlight is only compatible with MacOS.
 
+<img src="./assets/redlight-arch.svg" align="center">
+
 ## Supported Triggers
 - [x] Homebridge Switches
 
